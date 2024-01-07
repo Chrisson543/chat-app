@@ -30,7 +30,6 @@ export default function LoginPage(){
                 if(error.code == 'auth/invalid-credential'){
                     toggleShowPopup('invalidCredentials');
                 }
-                console.log(error)
             }
         }else{
             toggleShowPopup('emptyFields');

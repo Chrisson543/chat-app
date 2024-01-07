@@ -1,9 +1,6 @@
 import React from 'react';
-import { auth, db } from '../backend/firebase-config';
 import { AuthContext } from '../backend/AuthContext';
-import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
 
 export default function Popup({participantToKick, setParticipantToKick, kickParticipant, toggleShowPopup, popupType }){
     const { currentUser, currentRoomCode, setCurrentRoomCode, leaveRoom, logOut } = React.useContext(AuthContext);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, db } from '../backend/firebase-config';
-import { addDoc, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
+import { db } from '../backend/firebase-config';
+import { addDoc, collection, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import Popup from '../components/Popup';
 import { AuthContext } from '../backend/AuthContext';
 import Loading from '../components/Loading';

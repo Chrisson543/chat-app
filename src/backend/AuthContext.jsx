@@ -1,15 +1,13 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React from 'react';
 import { auth, db } from './firebase-config';
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, query, serverTimestamp, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, serverTimestamp } from 'firebase/firestore';
 
 export const AuthContext = React.createContext();
 
 export const AuthContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = React.useState({});
-    // console.log(currentUser);
     const [currentRoomCode, setCurrentRoomCode] = React.useState(null);
-    // console.log(currentRoomCode)
 
     const leaveRoom = async() => {
         try{

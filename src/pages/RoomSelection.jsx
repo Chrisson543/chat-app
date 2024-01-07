@@ -23,7 +23,6 @@ export default function RoomSelection(){
     //check if already in room
     React.useEffect(() => {
         if(currentRoomCode){
-            // console.log(currentRoomCode)
             navigate(`/${currentRoomCode}`);
         }
     }, [currentRoomCode]);

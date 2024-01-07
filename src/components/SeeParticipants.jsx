@@ -3,7 +3,7 @@ import { AuthContext } from '../backend/AuthContext';
 
 export default function SeeParticipants({ adminUID, participants, toggleSeeParticipants, toggleShowPopup }){
 
-    const { currentUser, currentRoomCode } = React.useContext(AuthContext);
+    const { currentUser } = React.useContext(AuthContext);
     const seeParticipantsRef = React.useRef(null);
     const handleClickOutside = (event) => {
         if(seeParticipantsRef.current && !seeParticipantsRef.current.contains(event.target)){

@@ -4,12 +4,11 @@ import ChatNotification from '../components/ChatNotification';
 import Dropdown from '../components/Dropdown';
 import SeeParticipants from '../components/SeeParticipants';
 import Popup from '../components/Popup';
-import { addDoc, collection, deleteDoc, doc, getDoc, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
-import { auth, db } from '../backend/firebase-config';
+import { addDoc, collection, deleteDoc, doc, getDoc, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
+import { db } from '../backend/firebase-config';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../backend/AuthContext';
 import Loading from '../components/Loading';
-import { signOut } from 'firebase/auth';
 
 export default function Chat(){
     const { roomCode } = useParams();
@@ -25,18 +24,7 @@ export default function Chat(){
     const messageAreaRef = React.useRef(null);
     const [popupType, setPopupType] = React.useState(null);
     const [adminUID, setAdminUID] = React.useState(null);
-    const [messagesList, setMessagesList] = React.useState([
-        // {
-        //     sender: 'chrisson',
-        //     timeSent: '17:38',
-        //     message: 'welcome to the chat room!'
-        // },
-        // {
-        //     sender: 'me',
-        //     timeSent: '17:38',
-        //     message: 'thanks for inviting me!'
-        // }
-    ]);
+    const [messagesList, setMessagesList] = React.useState([]);
     const [participants, setParticipants] = React.useState([]);
     const [participantToKick, setParticipantToKick] = React.useState({
         uid: null,
@@ -95,12 +83,11 @@ export default function Chat(){
           const options = {
             hour: 'numeric',
             minute: 'numeric',
-            hour12: false, // Use 24-hour time
+            hour12: false,
           };
       
           let formattedTime = new Intl.DateTimeFormat('en-US', options).format(timestampDate);
       
-          // Check if it's midnight and adjust the hours component
           if (timestampDate.getHours() === 0) {
             formattedTime = `00${formattedTime.slice(2)}`;
           }
