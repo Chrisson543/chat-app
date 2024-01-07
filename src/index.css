@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 18px;
+    font-family: Goldman;
+}
+html, body, #root{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #262A34
+}
+
+@layer components{
+    .main-button{
+        @apply  py-[0.5em] px-[1em] bg-light-green rounded-full;
+    }
+    .bg-decoration-left{
+        @apply left-[1rem] w-[5rem] b3:w-[7rem] b2:w-[8rem] b1:w-[auto] absolute
+    }
+    .bg-decoration-right{
+        @apply right-[1rem] w-[5rem] b3:w-[7rem] b2:w-[8rem] b1:w-[auto] absolute
+    }
+    .message-sent{
+        @apply w-full flex flex-col items-end
+    }
+    .message-received{
+        @apply w-full flex flex-col items-start
+    }
+    .custom-scrollbar::-webkit-scrollbar{
+        width: 10px;
+    }.custom-scrollbar::-webkit-scrollbar-thumb{
+        background-color: darkgray;
+        border-radius: 6px;
+    }.custom-scrollbar::-webkit-scrollbar-track{
+        background-color: transparent;
+        border-radius: 6px;
+    }.dropdown-option{
+        @apply border-b border-b-white p-[0.5rem] w-full justify-center flex hover:cursor-pointer
+    }
+}
